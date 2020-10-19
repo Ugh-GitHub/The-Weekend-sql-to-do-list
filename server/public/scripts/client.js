@@ -81,6 +81,17 @@ function addTask() {
    
 function deleteTask() {
     console.log("DELETE");
+    
+    let taskId = $(this).closest('tr').data('id');
+    $.ajax({
+        method: 'DELETE',
+        url: `/list/delete/${taskId}`,
+    }).then( function (response) {
+        getTaskList();
+        console.log(response); 
+    }).catch(function (error) {
+        console.log('error',error);
+    });
 }
 
 function changeStatus() {
