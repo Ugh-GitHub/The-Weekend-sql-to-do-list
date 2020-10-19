@@ -73,8 +73,7 @@ function addTask() {
         url: '/list',
         data: payloadObject
     }).then( function (response) {
-        $('#task').val(''),
-        $('#completedStatus').val(''),
+        $('#task').val('');
         
         getTaskList();
     });

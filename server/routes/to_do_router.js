@@ -80,13 +80,13 @@ router.put(`/completed/:id`, (req, res) => {
     if (req.body.completed !== "false") {
         console.log("hi ma",req.body.completed);
         queryText = `UPDATE task_list
-        SET "timestamp" = CURRENT_TIMESTAMP, "completed" = FALSE
+        SET "timestamp" = NULL, "completed" = FALSE
         WHERE id = $1;`;
         
     }
     else {
         console.log("hi pa",req.body.completed);
-        queryText = `UPDATE "task_list" SET "completed" = TRUE WHERE "id" = $1;`;
+        queryText = `UPDATE "task_list" SET "completed" = TRUE, "timestamp" = CURRENT_TIMESTAMP WHERE "id" = $1;`;
     }
 
     
