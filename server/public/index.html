@@ -9,6 +9,34 @@
     <link rel="stylesheet" href="styles/style.css"/>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h1>Add a new task to the to-do list</h1>
+    <div id="addPlayer">
+        <label for="task">Task</label>
+        <input type="text" id="task"/>
+
+        <label for="completed?">Is it done?</label>
+        <input type="checkbox" id="completed?"/>
+
+        <!-- <label for="rank">Rank</label>
+        <input type="number" id="rank"/> -->
+
+        <!-- put something here for a now?, 
+            if they select another time, have a text field popup -->
+
+        <button id="add">Submit</button>
+    </div>
+    <h2>Current Library</h2>
+    <table id="tableWrapper">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Completed?</th>
+                <th>Timestamp</th>
+                <th>Change Status</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="taskTBody"></tbody>
+    </table>
 </body>
 </html>
