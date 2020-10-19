@@ -27,11 +27,11 @@ function tableAppend(response) {
         for (let i = 0; i < response.length; i++) {
             if ( response[i].completed ) {
                 $('#taskTBody').append(`
-            <tr data-id=${response[i].id} data-completed=${response[i].completed}>
+            <tr class="completedTask" data-id=${response[i].id} data-completed=${response[i].completed}>
                 <td>${response[i].task}</td>
                 <td>Done!</td>
                 <td>${response[i].timestamp}</td>
-                <td><button class="changeStatus">Unmark</button></td>
+                <td><button data-completed="TRUE" class="changeStatus">Unmark</button></td>
                 <td><button class="deleteButton">Delete</button></td>   
             </tr>`);
             }
@@ -41,7 +41,7 @@ function tableAppend(response) {
                 <td>${response[i].task}</td>
                 <td>Incomplete</td>
                 <td>Not done yet!</td>
-                <td><button class="changeStatus">Mark as done</button></td>
+                <td><button data-completed="FALSE" class="changeStatus">Mark as done</button></td>
                 <td><button class="deleteButton">Delete</button></td>   
             </tr>`);
             }
@@ -86,4 +86,18 @@ function deleteTask() {
 
 function changeStatus() {
     console.log("PRESTO CHANGE-O");
+    let completed = $(this).closest('tr').data('completed');
+    let taskId = $(this).closest('tr').data('id');
+    console.log("Status",completed,"task id",taskId);
+
+    jQuery.ajax({
+        type: 'PUT',
+        url: `/list/completed/${taskId}`,
+        data: {completed: completed}
+    }).then(function (response) {
+        console.log('response', response);
+        getTaskList();
+    }).catch(function(error) {
+        console.log('error', error);
+    });
 }

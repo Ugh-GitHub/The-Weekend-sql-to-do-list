@@ -1,7 +1,7 @@
 CREATE TABLE task_list (
     "id" serial PRIMARY KEY,
     "task" varchar(250) NOT NULL,
-    "completed?" boolean NOT NULL,
+    "completed" boolean NOT NULL,
     "timestamp" TIMESTAMP
 );
 
