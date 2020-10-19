@@ -48,15 +48,29 @@ router.put(`/completed/:id`, (req, res) => {
 
 router.post('/', (req, res) => {
     // req.body statements
-
-
+    let task = req.body.task;
+    let completed = req.body.completed;
     let queryText = '';
-    pool.query(queryText).then((result) => {
+    if (req.body.timestamp !== null) {
+        queryText = `INSERT INTO "task_list" ("task", "completed", "timestamp")
+        VALUES($1, $2, CURRENT_TIMESTAMP);`;
+        pool.query(queryText, [task, completed]).then((result) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log("error with request", error);
+            res.sendStatus(500);
+        });
+    }
+    else {
+        queryText = `INSERT INTO "task_list" ("task", "completed")
+        VALUES($1, $2);`;
+    pool.query(queryText, [task, completed]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         console.log("error with request", error);
         res.sendStatus(500);
     });
+    }
 })
 
 module.exports = router;

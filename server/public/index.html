@@ -15,15 +15,17 @@
         <input type="text" id="task"/>
 
         <label for="completed?">Is it done?</label>
-        <input type="checkbox" id="completed?"/>
-
+        <select name="Currently done?" id="completedStatus">
+            <option value="true">Yes!</option>
+            <option value="false">Not yet</option>
+          </select>
         <!-- <label for="rank">Rank</label>
         <input type="number" id="rank"/> -->
 
         <!-- put something here for a now?, 
             if they select another time, have a text field popup -->
 
-        <button id="add">Submit</button>
+        <button id="addTask">Submit</button>
     </div>
     <h2>Current Library</h2>
     <table id="tableWrapper">
