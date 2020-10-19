@@ -1,7 +1,28 @@
 H1 {
     color: red;
+    font-size: 35px;
+}
+H2{
+    color: red;
+    font-size: 35px;
+}
+
+table, th, td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#taskDiv {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .completedTask {
-    color: green;
+    background-color: rgb(12, 241, 127);
+}
+
+body {
+    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
 }

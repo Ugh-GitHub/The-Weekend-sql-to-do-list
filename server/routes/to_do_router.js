@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "task_list";'; // DECIDE WHAT GOES HERE FOR TABLE NAME
+    let queryText = 'SELECT * FROM "task_list" ORDER BY "id";'; // DECIDE WHAT GOES HERE FOR TABLE NAME
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
     let task = req.body.task;
     let completed = req.body.completed;
     let queryText = '';
-    if (req.body.timestamp !== null) {
+    if (req.body.timestamp != null) {
         queryText = `INSERT INTO "task_list" ("task", "completed", "timestamp")
         VALUES($1, $2, CURRENT_TIMESTAMP);`;
         pool.query(queryText, [task, completed]).then((result) => {
