@@ -26,3 +26,7 @@ body {
     background-color: lightblue;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+#timestampCol {
+    width: 475px;
+}

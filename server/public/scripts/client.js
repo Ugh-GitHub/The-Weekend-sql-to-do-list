@@ -1,24 +1,17 @@
-
-
-console.log("hello from js");
-
-
+// console.log("hello from js");
 let maxId = 3;
- 
-
-
 let tasks = [
     {
         id: 0,
         completed: true,
         task: "Write code for demo site",
-        timestamp: "2022-01-05T18:54:54.152Z",
+        timestamp: "Mon Dec 31 2022 13:44:07 GMT-0600 (Central Standard Time)",
     },
     {
         id: 1,
         completed: true,
         task: "Publish a new project",
-        timestamp: "2022-01-05T18:54:54.152Z",
+        timestamp: "Mon Jan 6 2022 15:01:39 GMT-0600 (Central Standard Time)",
     },
     {
         id: 2,
@@ -78,19 +71,16 @@ function tableAppend(response) {
                 <td><button class="deleteButton">Delete</button></td>   
             </tr>`);
             }
-            
         };
-
 }
 
 function addTask() {
-    console.log($('#completedStatus').val());
+    // console.log($('#completedStatus').val());
     let payloadObject;
     // const ids = tasks.map(object => {return object.id});
     // const idMax = Math.max(...ids) + 1;
     const idMax = maxId + 1;
     maxId = idMax;
-    console.log(typeof $('#completedStatus').val());
     // Relied on the database to provide id in the past
     // Need to replace this functionality
     // Probably go with something that checks what the maximum id is in the array of objects, returns idMax
@@ -113,7 +103,6 @@ function addTask() {
     }
     tasks.push(payloadObject);
     getTaskList(tasks);
-    
     // let payloadObject;
     // if ($('#completedStatus').val() === 'true') {
     //     payloadObject = {
@@ -143,15 +132,12 @@ function addTask() {
 }
    
 function deleteTask() {
-    
     let taskId = $(this).closest('tr').data('id');
-    console.log("DELETE", taskId);
+    // console.log("DELETE", taskId);
     tasks = tasks.filter(task => task.id !== taskId);
-    console.log(tasks);
+    // console.log(tasks);
     getTaskList(tasks);
-
-
-    // let taskId = $(this).closest('tr').data('id');
+// let taskId = $(this).closest('tr').data('id');
 //     $.ajax({
 //         method: 'DELETE',
 //         url: `/list/delete/${taskId}`,
@@ -164,12 +150,12 @@ function deleteTask() {
 }
 
 function changeStatus() {
-    console.log("PRESTO CHANGE-O");
-    let completed = $(this).closest('tr').data('completed');
+    // console.log("PRESTO CHANGE-O");
+    // let completed = $(this).closest('tr').data('completed');
     let taskId = $(this).closest('tr').data('id');
     let taskIndex = tasks.findIndex(x => x.id === taskId);
-    console.log(completed, taskId);
-    console.log("Status",completed,"task id",taskId);
+    // console.log(completed, taskId);
+    // console.log("Status",completed,"task id",taskId);
     if (tasks[taskIndex].completed === true) {
         tasks[taskIndex].completed = false;
     }
@@ -177,9 +163,8 @@ function changeStatus() {
         tasks[taskIndex].completed = true;
         tasks[taskIndex].timestamp = Date();
     }
-    console.log("made it this far");
+    // console.log("made it this far");
     getTaskList(tasks);
-
     // jQuery.ajax({
     //     type: 'PUT',
     //     url: `/list/completed/${taskId}`,
