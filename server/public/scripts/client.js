@@ -81,30 +81,58 @@ function tableAppend(response) {
 function addTask() {
     console.log($('#completedStatus').val());
     let payloadObject;
+    const ids = tasks.map(object => {return object.id});
+    const idMax = Math.max(...ids) + 1;
+    console.log(typeof $('#completedStatus').val());
+    // Relied on the database to provide id in the past
+    // Need to replace this functionality
+    // Probably go with something that checks what the maximum id is in the array of objects, returns idMax
+    // Assigns (idMax + 1) to new task object
     if ($('#completedStatus').val() === 'true') {
         payloadObject = {
+            id: idMax,
             task: $('#task').val(),
-            completed: $('#completedStatus').val(),
-            timestamp: Date.now()
+            completed: true,
+            timestamp: Date(),
         }
     }
     else {
-        
         payloadObject = {
+            id: idMax,
             task: $('#task').val(),
-            completed: $('#completedStatus').val(),
+            completed: false,
+            timestamp: "Not done yet!",
         }
     }
-    console.log(payloadObject);
-    $.ajax({
-        type: 'POST',
-        url: '/list',
-        data: payloadObject
-    }).then( function (response) {
-        $('#task').val('');
+    tasks.push(payloadObject);
+    getTaskList(tasks);
+    
+    // let payloadObject;
+    // if ($('#completedStatus').val() === 'true') {
+    //     payloadObject = {
+    //         task: $('#task').val(),
+    //         completed: $('#completedStatus').val(),
+    //         timestamp: Date(),
+    //     }
+    // }
+    // else {
         
-        getTaskList();
-    });
+    //     payloadObject = {
+    //         task: $('#task').val(),
+    //         completed: $('#completedStatus').val(),
+    //         timestamp: "",
+    //     }
+    // }
+    // console.log(payloadObject);
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '/list',
+    //     data: payloadObject
+    // }).then( function (response) {
+    //     $('#task').val('');
+        
+    //     getTaskList();
+    // });
 }
    
 function deleteTask() {
@@ -133,15 +161,23 @@ function changeStatus() {
     let completed = $(this).closest('tr').data('completed');
     let taskId = $(this).closest('tr').data('id');
     console.log("Status",completed,"task id",taskId);
+    if (tasks[taskId].completed === true) {
+        tasks[taskId].completed = false;
+    }
+    else {
+        tasks[taskId].completed = true;
+        tasks[taskId].timestamp = Date();
+    }
+    getTaskList(tasks);
 
-    jQuery.ajax({
-        type: 'PUT',
-        url: `/list/completed/${taskId}`,
-        data: {completed: completed}
-    }).then(function (response) {
-        console.log('response', response);
-        getTaskList();
-    }).catch(function(error) {
-        console.log('error', error);
-    });
+    // jQuery.ajax({
+    //     type: 'PUT',
+    //     url: `/list/completed/${taskId}`,
+    //     data: {completed: completed}
+    // }).then(function (response) {
+    //     console.log('response', response);
+    //     getTaskList();
+    // }).catch(function(error) {
+    //     console.log('error', error);
+    // });
 }
