@@ -24,7 +24,7 @@ let tasks = [
     {
         id: 3,
         completed: true,
-        task: "generate impressions of demo site",
+        task: "Generate impressions of demo site",
         timestamp: Date(),
     }	
 ];
@@ -108,18 +108,24 @@ function addTask() {
 }
    
 function deleteTask() {
-    console.log("DELETE");
     
     let taskId = $(this).closest('tr').data('id');
-    $.ajax({
-        method: 'DELETE',
-        url: `/list/delete/${taskId}`,
-    }).then( function (response) {
-        getTaskList();
-        console.log(response); 
-    }).catch(function (error) {
-        console.log('error',error);
-    });
+    console.log("DELETE", taskId);
+    tasks = tasks.filter(task => task.id !== taskId);
+    console.log(tasks);
+    getTaskList(tasks);
+
+
+    // let taskId = $(this).closest('tr').data('id');
+//     $.ajax({
+//         method: 'DELETE',
+//         url: `/list/delete/${taskId}`,
+//     }).then( function (response) {
+//         getTaskList();
+//         console.log(response); 
+//     }).catch(function (error) {
+//         console.log('error',error);
+//     });
 }
 
 function changeStatus() {
