@@ -2,6 +2,11 @@
 
 console.log("hello from js");
 
+
+let maxId = 3;
+ 
+
+
 let tasks = [
     {
         id: 0,
@@ -81,8 +86,10 @@ function tableAppend(response) {
 function addTask() {
     console.log($('#completedStatus').val());
     let payloadObject;
-    const ids = tasks.map(object => {return object.id});
-    const idMax = Math.max(...ids) + 1;
+    // const ids = tasks.map(object => {return object.id});
+    // const idMax = Math.max(...ids) + 1;
+    const idMax = maxId + 1;
+    maxId = idMax;
     console.log(typeof $('#completedStatus').val());
     // Relied on the database to provide id in the past
     // Need to replace this functionality
@@ -160,14 +167,17 @@ function changeStatus() {
     console.log("PRESTO CHANGE-O");
     let completed = $(this).closest('tr').data('completed');
     let taskId = $(this).closest('tr').data('id');
+    let taskIndex = tasks.findIndex(x => x.id === taskId);
+    console.log(completed, taskId);
     console.log("Status",completed,"task id",taskId);
-    if (tasks[taskId].completed === true) {
-        tasks[taskId].completed = false;
+    if (tasks[taskIndex].completed === true) {
+        tasks[taskIndex].completed = false;
     }
     else {
-        tasks[taskId].completed = true;
-        tasks[taskId].timestamp = Date();
+        tasks[taskIndex].completed = true;
+        tasks[taskIndex].timestamp = Date();
     }
+    console.log("made it this far");
     getTaskList(tasks);
 
     // jQuery.ajax({
