@@ -2,6 +2,33 @@
 
 console.log("hello from js");
 
+let tasks = [
+    {
+        id: 0,
+        completed: true,
+        task: "Write code for demo site",
+        timestamp: "2022-01-05T18:54:54.152Z",
+    },
+    {
+        id: 1,
+        completed: true,
+        task: "Publish a new project",
+        timestamp: "2022-01-05T18:54:54.152Z",
+    },
+    {
+        id: 2,
+        completed: false,
+        task: "Fight dragons",
+        timestamp: "",
+    },
+    {
+        id: 3,
+        completed: true,
+        task: "generate impressions of demo site",
+        timestamp: Date(),
+    }	
+];
+
 $(document).ready(onReady);
 
 function onReady() {
@@ -13,13 +40,14 @@ function onReady() {
 }
 
 function getTaskList() {
-    $.ajax({
-        type: 'GET',
-        url: '/list'
-    }).then(function (response) {
-        console.log('Get got!');
-        tableAppend(response);
-    });
+    // $.ajax({
+    //     type: 'GET',
+    //     url: '/list'
+    // }).then(function (response) {
+    //     console.log('Get got!');
+    //     tableAppend(response);
+    // });
+    tableAppend(tasks);
 }
 
 function tableAppend(response) {
