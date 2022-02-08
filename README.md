@@ -1,6 +1,4 @@
-# Project Name
-
-The Weekend SQL To-Do List
+# The Weekend SQL To-Do List
 
 ## Description
   
