@@ -36,7 +36,7 @@ A user who has a messy house and a busy programming class and need to keep track
 * [jQuery](https://jquery.com/)
 * Javascript
 * HTML
-* Tested with Jquery & [Postico](https://eggerapps.at/postico/)
+* Tested with jQuery & [Postico](https://eggerapps.at/postico/)
 
 ## Acknowledgement
 
