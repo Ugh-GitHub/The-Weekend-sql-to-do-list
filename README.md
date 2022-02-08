@@ -4,11 +4,11 @@ The Weekend SQL To-Do List
 
 ## Description
   
-UPDATE: For the public hosting of this project, all of the AJAX CRUD operations have been overwritten with javascript calculations and a default array for security purposes. The original code is commented out.
+UPDATE: For the sake of securely hosting this project on Heroku, all of the AJAX CRUD operations have been overwritten with javascript calculations and a default array. The original code is commented out here on Github, but still included for reference.
   
 The problem solved was utilizing the AJAX (Asynchronous Javascript And XML) suite of methods to communicate with servers. In turn, we used a PostgreSQL database and related packages to implement CRUD (Create, Read, Update & Delete) operations with data from the database as well as from the server & front end.
 
-[![Do-To List App Demo Screenshot](public/images/ToDoList.png)](#)
+[![Do-To List App Demo Screenshot](server/public/images/ToDoList.png)](#)
 
 ## Prerequisites
 
@@ -33,10 +33,10 @@ A user who has a messy house and a busy programming class and need to keep track
 
 ## Built with
 
-[jQuery](https://jquery.com/)
-Javascript
-HTML
-Tested with Jquery & [Postico](https://eggerapps.at/postico/)
+* [jQuery](https://jquery.com/)
+* Javascript
+* HTML
+* Tested with Jquery & [Postico](https://eggerapps.at/postico/)
 
 ## Acknowledgement
 
