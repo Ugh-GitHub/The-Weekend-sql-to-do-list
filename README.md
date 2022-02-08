@@ -3,26 +3,27 @@
 The Weekend SQL To-Do List
 
 ## Description
-
+  
+UPDATE: For the public hosting of this project, all of the AJAX CRUD operations have been overwritten with javascript calculations and a default array for security purposes. The original code is commented out.
+  
 The problem solved was utilizing the AJAX (Asynchronous Javascript And XML) suite of methods to communicate with servers. In turn, we used a PostgreSQL database and related packages to implement CRUD (Create, Read, Update & Delete) operations with data from the database as well as from the server & front end.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+[![Do-To List App Demo Screenshot](public/images/ToDoList.png)](#)
 
 ## Prerequisites
 
--   Node.js
--   PostgreSQL
--   Express
--   Body-Parser
+*   [Node.js](https://nodejs.org/en/download/)
+*   [PostgreSQL](https://www.postgresql.org/download/)
+*   [Express](https://expressjs.com/en/starter/installing.html)
 
-## Intallation
+## Installation
 
-1.  Create a database using the code from the database.sql file, located in the database_details directory in the server directory.
-2.  Install all the prequisite software packages in the repository via the terminal (don't use a windows computer. Please.).
-3.  Launch the server by typing node server/server.js.
-4.  Open up "localhost:5000" in your preferred (but supported) web-browser (options include Firefox, Chrome, Edge, and Safari, but possibly more).
-5.  Add tasks via the field as desired, including whether or not they have been completed.
-6.  Mark completed (or unmark), or delete tasks as needed through the button interfaces in the table.
+1.  Download or clone the repository.
+2.  Create a database using the code from the database.sql file (./server/database_details/database.sql) in your preferred database client (I used [Postico](https://eggerapps.at/postico/)).
+2.  Run `npm install` in the terminal.
+3.  Launch the server by typing `npm start`.
+4.  Open up `localhost:5000` in your web-browser.
+
 
 ##  Usage
 
@@ -32,9 +33,11 @@ A user who has a messy house and a busy programming class and need to keep track
 
 ## Built with
 
-Jquery, and all the above prequisite packages.
-Tested with Jquery & Postico
+[jQuery](https://jquery.com/)
+Javascript
+HTML
+Tested with Jquery & [Postico](https://eggerapps.at/postico/)
 
 ## Acknowledgement
 
-Thanks to Prime Digital Academy who equipped and helped me to make this application a reality. (Thank your people)
+Thanks to Prime Digital Academy.
